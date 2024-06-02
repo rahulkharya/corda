@@ -1,2 +1,4 @@
-package com.r3.developers.apples.contracts;public class MyContract {
+package com.r3.developers.apples.contracts;
+
+public class MyContract {
 }

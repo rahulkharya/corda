@@ -1,7 +1,7 @@
 package com.r3.developers.apples.workflows;
 
 import com.r3.developers.apples.contracts.AppleCommands;
-import com.r3.developers.apples.states.BasketOfApples;
+import com.r3.developers.apples.states.BasketofApples;
 import net.corda.v5.application.flows.ClientRequestBody;
 import net.corda.v5.application.flows.ClientStartableFlow;
 import net.corda.v5.application.flows.CordaInject;
@@ -52,7 +52,7 @@ public class PackageApplesFlow implements ClientStartableFlow {
         PublicKey myKey = memberLookup.myInfo().getLedgerKeys().get(0);
 
         // Building the output BasketOfApples state
-        BasketOfApples basket = new BasketOfApples(
+        BasketofApples basket = new BasketofApples(
                 appleDescription,
                 myKey,
                 myKey,

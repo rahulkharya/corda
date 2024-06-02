@@ -2,7 +2,7 @@ package com.r3.developers.apples.workflows;
 
 import com.r3.developers.apples.contracts.AppleCommands;
 import com.r3.developers.apples.states.AppleStamp;
-import com.r3.developers.apples.states.BasketOfApples;
+import com.r3.developers.apples.states.BasketofApples;
 import net.corda.v5.application.flows.ClientRequestBody;
 import net.corda.v5.application.flows.ClientStartableFlow;
 import net.corda.v5.application.flows.CordaInject;
@@ -87,10 +87,10 @@ public class RedeemApplesFlow implements ClientStartableFlow {
             throw new IllegalArgumentException("There are no eligible basket of apples");
         }
 
-        StateAndRef<BasketOfApples> basketOfApplesStampStateAndRef;
+        StateAndRef<BasketofApples> basketOfApplesStampStateAndRef;
         try {
             basketOfApplesStampStateAndRef = utxoLedgerService
-                    .findUnconsumedStatesByExactType(BasketOfApples.class, 100, Instant.now()).getResults()
+                    .findUnconsumedStatesByExactType(BasketofApples.class, 100, Instant.now()).getResults()
                     .stream()
                     .filter(
                             stateAndRef -> stateAndRef.getState().getContractState().getOwner().equals(
@@ -103,9 +103,9 @@ public class RedeemApplesFlow implements ClientStartableFlow {
             throw new IllegalArgumentException("There are no eligible baskets of apples");
         }
 
-        BasketOfApples originalBasketOfApples = basketOfApplesStampStateAndRef.getState().getContractState();
+        BasketofApples originalBasketOfApples = basketOfApplesStampStateAndRef.getState().getContractState();
 
-        BasketOfApples updatedBasket = originalBasketOfApples.changeOwner(buyer);
+        BasketofApples updatedBasket = originalBasketOfApples.changeOwner(buyer);
 
         //Create the transaction
         UtxoSignedTransaction transaction = utxoLedgerService.createTransactionBuilder()

@@ -1,2 +1,4 @@
-package com.r3.developers.apples.workflows;public class IssueFlow {
+package com.r3.developers.apples.workflows;
+
+public class IssueFlow {
 }
